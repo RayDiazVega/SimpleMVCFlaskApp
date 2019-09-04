@@ -12,11 +12,11 @@ Instalación
 2. Abrir la terminal en la carpeta donde estan los archivos 
 3. Se crear una imagen usando docker usando el comando de docker
 ```
- docker build --tag=friendlyhello . (“fiendlyhello” nombre que se le que se le quiere colocar a la imagen)
+ docker build --tag=nombre_de_la_imagen .
  ```
 4. Desplegamos la aplicación usando el comando
 ```
-docker run -p 4000:80 friendlyhello
+docker run -p 4000:80 nombre_de_la_imagen
 ```
 5. Abrimos el navegador y en la barra de navegación colocamos http://localhost:4000
 
