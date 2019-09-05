@@ -31,7 +31,7 @@ class db():
     return deepcopy(self)
 
 DBlist = db()#Objeto dedicado a la lista
-DBapi = DBlist.clone()#Copia del objeto lista
+DBapi = DBlist.clone()#Copia del objeto lista dedicado a la api
 
 @app.teardown_appcontext
 def close_connection(exception):
