@@ -1,6 +1,8 @@
 import sqlite3
 from copy import deepcopy#Prototype
 from flask import Flask, render_template, g, jsonify
+import threading
+import time
 
 app = Flask(__name__)
 
@@ -24,11 +26,21 @@ class db():
     cur = self.get().execute(query, args)
     rv = cur.fetchall()
     cur.close()
+    t = observador()
+    t.start()
     return (rv[0] if rv else None) if one else rv
 
   def clone(self):#Metodo que crea una copia del original
     self._clon = "Verdadero"
     return deepcopy(self)
+
+class observador(threading.Thread):
+   def run(self):
+      print ("mirando json")
+      for i in range(1,5):
+        self.i = i
+        time.sleep(2)
+      print ("sigue mirando")
 
 DBlist = db()#Objeto dedicado a la lista
 DBapi = DBlist.clone()#Copia del objeto lista dedicado a la api
@@ -57,3 +69,5 @@ def api():
 
 if __name__== '__main__':
     app.run(debug = True, host='0.0.0.0', port=80)
+
+		
