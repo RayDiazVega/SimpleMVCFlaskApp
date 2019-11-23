@@ -1,7 +1,6 @@
 ## SimpleMVCFlaskApp
 Aplicacion web con base de datos hecha en Flask y montada en Docker.
-
-Descargar 
+ 
 Descargar el repositorio como un zip o linea comando 
 
 Pre-requisitos 
